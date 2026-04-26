@@ -2,6 +2,28 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useAuth } from '../context/AuthContext';
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Environment, Html, useProgress } from '@react-three/drei';
+import PinkComputer from '../components/PinkComputer';
+
+function Loader() {
+  const { progress } = useProgress();
+  return (
+    <Html center>
+      <div style={{ 
+        color: 'var(--accent-1)', 
+        fontFamily: 'var(--font-display)',
+        fontSize: '1.2rem',
+        fontWeight: 'bold',
+        animation: 'pulse 1.5s infinite',
+        whiteSpace: 'nowrap'
+      }}>
+        LOADING... {progress.toFixed(0)}%
+      </div>
+    </Html>
+  );
+}
 
 export default function Login() {
   const { login } = useAuth();
@@ -31,8 +53,22 @@ export default function Login() {
       <div className="dots-bg" />
       <div className="mesh-bg" />
 
-      <div className="page-wrapper fade-in">
-        <div className="glass-card" style={{ width: '100%', maxWidth: 420, padding: '2.5rem 2rem' }}>
+      <div className="page-wrapper fade-in" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4rem', flexDirection: 'row-reverse', flexWrap: 'wrap', width: '100%', padding: '2rem' }}>
+        
+        {/* 3D Model Container */}
+        <div style={{ flex: '1 1 300px', maxWidth: '600px', height: '500px', position: 'relative' }}>
+          <Canvas camera={{ position: [0, 1, 4], fov: 45 }}>
+            <Suspense fallback={<Loader />}>
+              <ambientLight intensity={0.6} />
+              <directionalLight position={[10, 10, 5]} intensity={1.5} />
+              <PinkComputer position={[0, -0.5, 0]} scale={22} />
+              <Environment preset="city" />
+              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
+            </Suspense>
+          </Canvas>
+        </div>
+
+        <div className="glass-card" style={{ flex: '1 1 350px', width: '100%', maxWidth: 420, padding: '2.5rem 2rem' }}>
 
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>

@@ -1,10 +1,13 @@
-FROM node:20-alpine
+FROM node:20-slim
+RUN apt-get update && apt-get install -y openssl
+
 WORKDIR /app
+
 COPY package*.json ./
-RUN npm ci --only=production
-COPY prisma ./prisma
-RUN npx prisma generate
+RUN npm install
+
 COPY . .
-RUN mkdir -p logs
-EXPOSE 5000
-CMD ["sh", "-c", "npx prisma db push && node server.js"]
+RUN npx prisma generate
+
+EXPOSE 5001
+CMD ["npm", "start"]

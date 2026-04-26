@@ -165,31 +165,36 @@ textarea.input { resize: vertical; min-height: 80px; }
 .mesh-bg::before {
   content: '';
   position: absolute;
-  top: -30%;
-  left: -20%;
-  width: 70vw;
-  height: 70vw;
-  background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
-  animation: blob1 12s ease-in-out infinite alternate;
+  top: -10%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(236,72,153,0.18) 0%, transparent 65%);
+  animation: blob1 14s ease-in-out infinite alternate;
 }
 .mesh-bg::after {
   content: '';
   position: absolute;
-  bottom: -30%;
-  right: -20%;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%);
-  animation: blob2 14s ease-in-out infinite alternate;
+  bottom: -15%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 60%);
+  animation: blob2 16s ease-in-out infinite alternate;
+}
+
+/* We can add an extra div for a third glow if we add a child to .mesh-bg, but let's stick to pseudo-elements and add a box-shadow to .mesh-bg itself for a center glow */
+.mesh-bg {
+  box-shadow: inset 0 0 50vw rgba(236,72,153,0.05);
 }
 
 @keyframes blob1 {
   0%   { transform: translate(0, 0)   scale(1); }
-  100% { transform: translate(10%, 15%) scale(1.15); }
+  100% { transform: translate(15%, 20%) scale(1.2); }
 }
 @keyframes blob2 {
   0%   { transform: translate(0, 0)   scale(1); }
-  100% { transform: translate(-10%, -10%) scale(1.1); }
+  100% { transform: translate(-15%, -15%) scale(1.15); }
 }
 
 /* ─── Grid dots pattern ──────────────────────────────────── */

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pink Computer
+* source:	https://sketchfab.com/3d-models/pink-computer-e788c1c50cc346ca8037a8b02e82386c
+* author:	Alex Araujo (https://sketchfab.com/skymoondxd)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pink Computer" (https://sketchfab.com/3d-models/pink-computer-e788c1c50cc346ca8037a8b02e82386c) by Alex Araujo (https://sketchfab.com/skymoondxd) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
